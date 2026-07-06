@@ -41,8 +41,9 @@
 
 | Phase | Time | Format |
 |---|---|---|
-| Concept walkthrough | ~90 min | Instructor uses the [**interactive key-concepts walkthrough →**](https://su-ntu-ctp.github.io/6m-data-3.6-Time-Series-Forecasting/) |
+| Concept recap (slides) | ~45–60 min | Instructor recaps the key concepts with the lesson slides — you already explored the [interactive key-concepts page](https://su-ntu-ctp.github.io/6m-data-3.6-Time-Series-Forecasting/) pre-class |
 | Hands-on code-alongs | ~90 min | Three notebooks (~25–30 min each) |
+| Class exit survey | ~15 min | Quick survey to capture what clicked and what didn't — helps shape the next session |
 | (Self-study after class) | self-paced | Each notebook has a 🟡 Extension section + the assignment |
 
 ---
@@ -53,7 +54,7 @@
 
 **Start here →** [**pre-class.md**](./pre-class.md)
 
-You'll run `01_monday_morning.ipynb` to see NorthStar's daily revenue data + watch a video on STL decomposition + try three mini-exercises.
+You'll run `01_monday_morning.ipynb` to see NorthStar's daily revenue data + watch a video on STL decomposition + try three mini-exercises. After the video, explore the [**interactive key-concepts page**](https://su-ntu-ctp.github.io/6m-data-3.6-Time-Series-Forecasting/) (GitHub Pages).
 
 ---
 
@@ -61,7 +62,7 @@ You'll run `01_monday_morning.ipynb` to see NorthStar's daily revenue data + wat
 
 **Short reference & review →** [**lesson.md**](./lesson.md) (overview, key takeaways, forecast-honesty checklist, review Q&A, L07→L10 course map)
 
-**Interactive walkthrough →** [**Key Concepts — interactive page**](https://su-ntu-ctp.github.io/6m-data-3.6-Time-Series-Forecasting/) (the visual walkthrough used in class — revisit any time)
+**Need a recap? →** [**Key Concepts — interactive page**](https://su-ntu-ctp.github.io/6m-data-3.6-Time-Series-Forecasting/) (the page you explored pre-class — revisit any time)
 
 **Notebooks — run in order:**
 
@@ -112,7 +113,7 @@ lesson.md                              ← Short reference & review (overview ·
 reference.md                           ← Phase 3: Further reading + glossary
 environment.yml                        ← Conda environment spec
 docs/
-  index.html                           ← Interactive key-concepts walkthrough (GitHub Pages)
+  index.html                           ← Interactive key-concepts page — explore during pre-class (GitHub Pages)
 notebooks/
   data/
     northstar_daily_revenue.csv        ← 731 days (2024-01-01 to 2025-12-31)

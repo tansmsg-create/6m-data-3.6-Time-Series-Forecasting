@@ -18,13 +18,15 @@ This is the simplest version of "show up prepared": watch a short intro, run one
 
 A short orientation to the week: why time-ordered data breaks the assumptions of L03–L05, and what Sarah is about to build for Marcus's Q4 forecast. Watch it before opening the notebook.
 
+🕹️ **After the video:** open the [interactive key-concepts page](https://su-ntu-ctp.github.io/6m-data-3.6-Time-Series-Forecasting/) and play with it for 10–15 minutes. Drag the sliders, click the buttons — you can't break anything. Arriving in class having *seen* these ideas move makes the session far easier.
+
 ---
 
 ## Step 1 — Try it (~20 min)
 
 Open **`notebooks/01_monday_morning.ipynb`** in VS Code with the `dsai-m3` kernel. Run every cell top to bottom. Read the markdown between cells. Don't skip any cell.
 
-Marcus needs a Q4 holiday revenue forecast for the board. The notebook hands Sarah two years of daily revenue. She tries a Naive baseline, learns about Seasonal Naive + ETS, then builds an ML forecaster with lag features. The honest finding: on a single holiday window, fancier methods can tie the naive baseline — *single-window evaluation lies. Always cross-validate.*
+Marcus needs a Q4 holiday revenue forecast for the board. The notebook hands Sarah two years of daily revenue. Before any model, she looks: a quick eyeball forecast, the full 2-year plot (upward trend + a Nov–Dec holiday spike), a 2-month zoom (weekends beat weekdays — the weekly cycle), and a 2024-vs-2025 overlay showing the annual pattern repeats. In class you'll separate those patterns (decomposition), then forecast them with classical methods and ML.
 
 If this is your first time running a notebook in this repo, see [setup.md](./setup.md) once — you only need to do this for the first lesson.
 

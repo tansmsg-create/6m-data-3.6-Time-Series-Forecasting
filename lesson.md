@@ -1,6 +1,6 @@
 # Lesson — L06 Time Series Forecasting
 
-> **Chapter 6 of the NorthStar Retail story.** *Sarah Chen · Customer Experience Analyst · June 2023.*
+> **Chapter 6 of the NorthStar Retail story.** *Sarah Chen · Customer Experience Analyst · Week 7.*
 > Marcus's brief from end-of-L05: *"Sales are seasonal. Can you forecast next quarter's revenue?"* Sarah opens `northstar_daily_revenue.csv` — 2 years of daily revenue, 731 rows. By Friday she has to show a 90-day forecast with honest error bars and a recommendation on which method to put into production.
 
 This document is a **short reference** — the lesson itself is taught in the notebooks. Read it for orientation before class, then come back to it for the takeaways, the forecast-honesty checklist, the review questions, and the course map.
@@ -50,6 +50,36 @@ Before you ship a forecast — into a dashboard, a board pack, a capacity plan �
 3. **Did you avoid a single lucky split?** Never shuffle a forecast — random k-fold leaks the future into the past, and one test window (a holiday slice, say) can flatter or punish any model. Quote a range, not a single point — forecast uncertainty grows with the horizon. *(Optional: average across rolling `TimeSeriesSplit` windows — see the extension notebook.)*
 
 Skip any of these and your forecast is a confident-sounding guess — the most expensive kind of mistake in planning.
+
+---
+
+## Key concepts — plain-English review
+
+Use this as a self-check before the review questions: read each concept, and if any feels fuzzy, jump back to the notebook or section that teaches it.
+
+**Time series** — Data where each row is a moment in time and the order matters: today's revenue depends on yesterday's and on the same day last year.
+*Real-world use:* A hospital tracks daily A&E admissions to staff the right number of nurses per shift.
+
+**Trend, seasonality, and noise** — Any series is a mix of a long-term direction (trend), a repeating cycle (seasonality), and leftover randomness (noise). Seeing the three separately tells you what's really changing.
+*Real-world use:* An electricity provider separates the summer air-con spike (seasonal) from genuine year-on-year demand growth (trend) before buying capacity.
+
+**Decomposition (STL)** — A tool that splits a series into those three layers automatically. If the "leftover" panel still shows a pattern, you missed a cycle.
+*Real-world use:* Sarah runs STL on NorthStar's daily revenue and discovers the weekly shopping rhythm hiding inside the yearly one.
+
+**Baseline forecast (Naive / Seasonal Naive)** — The simplest possible guess: "tomorrow = today" or "next Monday = last Monday". Every fancy model must beat this bar, or the simple guess *is* the answer.
+*Real-world use:* An airline checks whether its demand model actually beats "same week last year" before paying to run it.
+
+**Time-aware train/test split (no shuffling!)** — Train on the past, test on the future — never shuffle, or tomorrow's answers leak into today's training and the model looks falsely good.
+*Real-world use:* A bank validating a cash-machine demand model tests only on months *after* the training period, mimicking real deployment.
+
+**ETS / Holt-Winters (exponential smoothing)** — A classical method with three intuitive knobs — level, trend, seasonality — that fits in seconds and is hard to beat on clean data.
+*Real-world use:* A café chain forecasts weekly milk orders per store with Holt-Winters; no data scientist required after setup.
+
+**Lag features** — Turning "the past" into ordinary columns: yesterday's value (`lag_1`), last week's (`lag_7`), last year's (`lag_365`) — so a normal ML model can forecast.
+*Real-world use:* A streaming app predicts tonight's viewing load using last night's and last-same-weekday's numbers as inputs.
+
+**Forecast error metrics (MAE)** — MAE answers "how wrong are we on average, in real units?" — the number a manager can actually act on. RMSE punishes big misses harder; MAPE gives percentages but breaks near zero.
+*Real-world use:* A supermarket reports "our bread forecast is off by 40 loaves a day on average" — an MAE the bakery team can plan around.
 
 ---
 
